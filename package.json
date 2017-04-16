@@ -1,0 +1,24 @@
+{
+  "name": "schoolcube",
+  "version": "1.0.0",
+  "description": "Multiple 3D cube Control",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karote00/schoolcube.git"
+  },
+  "keywords": [
+    "school",
+    "3D",
+    "cube"
+  ],
+  "author": "Asa Tsai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karote00/schoolcube/issues"
+  },
+  "homepage": "https://github.com/karote00/schoolcube#readme"
+}
