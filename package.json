@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production PLATFORM=web webpack",
     "start": "node server.js",
-    "postinstall": "npm install"
+    "heroku-postbuild": "npm install"
   },
   "repository": {
     "type": "git",
