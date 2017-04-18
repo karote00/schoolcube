@@ -2,11 +2,15 @@
   "name": "schoolcube",
   "version": "1.0.0",
   "description": "Multiple 3D cube Control",
+  "engines": {
+    "npm": "4.5.x"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production PLATFORM=web webpack",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "npm install"
   },
   "repository": {
     "type": "git",
