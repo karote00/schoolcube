@@ -10,6 +10,7 @@ var camera, scene, raycaster, renderer;
 var mouse = new THREE.Vector2(), INTERSECTED;
 var radius = 100, theta = 0;
 var n = 3;
+var BOX_GAP = 50;
 
 document.addEventListener('DOMContentLoaded', function() {
 	init();
@@ -36,12 +37,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		for (var i = 0; i < n; i ++) {
 			for (var j = 0; j < n; j++) {
-				var object = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: Math.random() * 0xffffff }));
-				object.position.x = Math.random() * 80 - 40;
-				object.position.y = Math.random() * 80 - 40;
-				object.position.z = Math.random() * 80 - 40;
+				for (var k = 0; k < n; k++) {
+					var object = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: Math.random() * 0xffffff }));
+					// object.position.x = Math.random() * 80 - 40;
+					// object.position.y = Math.random() * 80 - 40;
+					// object.position.z = Math.random() * 80 - 40;
+					object.position.x = (i - (n / 2)) * BOX_GAP;
+					object.position.y = (j - (n / 2)) * BOX_GAP;
+					object.position.z = (k - (n / 2)) * BOX_GAP;
 
-				scene.add(object);
+					scene.add(object);
+				}
 			}
 		}
 
