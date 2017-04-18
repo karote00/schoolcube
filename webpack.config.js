@@ -2,12 +2,30 @@ const path 		= require('path');
 
 const config = {
   entry: './app/index.js',
+  devtool: 'source-map',
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
-				loader: "babel-loader",
-				exclude: /node_modules/,
+				use: 'babel-loader',
+				exclude: /(node_modules|bower_components)/,
+			},
+			{
+				test: /\.scss$/,
+				// loader: 'style!css!autoprefixer!sass'
+				use: [{
+					loader: 'style-loader'
+				}, {
+					loader: 'css-loader',
+					options: {
+						sourceMap: true
+					}
+				}, {
+					loader: 'sass-loader',
+					options: {
+						sourceMap: true
+					}
+				}]
 			}
 		]
 	},
