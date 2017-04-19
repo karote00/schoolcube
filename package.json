@@ -2,6 +2,7 @@
   "name": "schoolcube",
   "version": "1.0.0",
   "description": "Multiple 3D cube Control",
+  "main": "server.js",
   "engines": {
     "node": "7.7.x",
     "npm": "4.5.x"
