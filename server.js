@@ -30,7 +30,7 @@ if (isDeveloping) {
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
   app.get('*', function response(req, res) {
-		res.sendFile(path.join(__dirname, '/app/index.html'));
+		res.sendFile(path.join(__dirname, '/index.html'));
   });
 } else {
   app.use(express.static(__dirname + '/dist'));

@@ -1,5 +1,5 @@
-import './assets/scss/main.scss';
-import cubeD3 from './assets/js/components/cube';
+import './app/assets/scss/main.scss';
+import cubeD3 from './app/assets/js/components/cube';
 
 import THREELib from 'three-js';
 
@@ -9,9 +9,9 @@ var container;
 var camera, scene, raycaster, renderer;
 var mouse = new THREE.Vector2(), INTERSECTED;
 var radius = 100, theta = 0;
-var n = 7;
+var n = 3;
 var BOX_WIDTH = 20;
-var BOX_GAP = BOX_WIDTH;
+var BOX_GAP = BOX_WIDTH + 20;
 
 document.addEventListener('DOMContentLoaded', function() {
 	init();

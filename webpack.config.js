@@ -1,7 +1,7 @@
 const path 		= require('path');
 
 const config = {
-  entry: './app/index.js',
+  entry: './index.js',
   devtool: 'source-map',
 	module: {
 		rules: [
