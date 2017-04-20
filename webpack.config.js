@@ -1,4 +1,5 @@
 const path 		= require('path');
+const postcssConfig = require('./postcss.config.js');
 
 const config = {
   entry: './app.js',
@@ -16,14 +17,14 @@ const config = {
 				use: [{
 					loader: 'style-loader'
 				}, {
-					loader: 'css-loader',
+					loader: 'css-loader?importLoaders=1',
 					options: {
 						sourceMap: true
 					}
 				}, {
-					loader: 'sass-loader',
+					loader: 'postcss-loader',
 					options: {
-						sourceMap: true
+						plugins: postcssConfig
 					}
 				}]
 			}

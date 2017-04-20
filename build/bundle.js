@@ -128,8 +128,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js??ref--1-1!../../../node_modules/sass-loader/lib/loader.js??ref--1-2!./main.scss", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js??ref--1-1!../../../node_modules/sass-loader/lib/loader.js??ref--1-2!./main.scss");
+		module.hot.accept("!!../../../node_modules/css-loader/index.js??ref--1-1!../../../node_modules/postcss-loader/index.js??ref--1-2!./main.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js??ref--1-1!../../../node_modules/postcss-loader/index.js??ref--1-2!./main.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -2232,7 +2232,7 @@ exports = module.exports = __webpack_require__(7)(true);
 
 
 // module
-exports.push([module.i, "* {\n  box-sizing: border-box;\n  padding: 0;\n  margin: 0; }\n\nbody {\n  font-family: Monospace;\n  background-color: #f0f0f0;\n  margin: 0px;\n  overflow: hidden; }\n", "", {"version":3,"sources":["/Users/ASA/Desktop/workspace/schoolcube/schoolcube/app/assets/scss/main.scss"],"names":[],"mappings":"AAAA;EACC,uBAAsB;EACtB,WAAU;EACV,UAAS,EACT;;AAED;EACC,uBAAsB;EACtB,0BAAyB;EACzB,YAAW;EACX,iBAAgB,EAChB","file":"main.scss","sourcesContent":["* {\n\tbox-sizing: border-box;\n\tpadding: 0;\n\tmargin: 0;\n}\n\nbody {\n\tfont-family: Monospace;\n\tbackground-color: #f0f0f0;\n\tmargin: 0px;\n\toverflow: hidden;\n}"],"sourceRoot":""}]);
+exports.push([module.i, "* {\n\tbox-sizing: border-box;\n\tpadding: 0;\n\tmargin: 0;\n}\n\nbody {\n\tfont-family: Monospace;\n\tbackground-color: #f0f0f0;\n\tmargin: 0px;\n\toverflow: hidden;\n}", "", {"version":3,"sources":["/Users/ASA/Desktop/workspace/schoolcube/schoolcube/app/assets/scss/main.scss"],"names":[],"mappings":"AAAA;CACC,uBAAuB;CACvB,WAAW;CACX,UAAU;CACV;;AAED;CACC,uBAAuB;CACvB,0BAA0B;CAC1B,YAAY;CACZ,iBAAiB;CACjB","file":"main.scss","sourcesContent":["* {\n\tbox-sizing: border-box;\n\tpadding: 0;\n\tmargin: 0;\n}\n\nbody {\n\tfont-family: Monospace;\n\tbackground-color: #f0f0f0;\n\tmargin: 0px;\n\toverflow: hidden;\n}"],"sourceRoot":""}]);
 
 // exports
 
