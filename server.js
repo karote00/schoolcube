@@ -6,7 +6,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = isDeveloping ? 4422 : process.env.PORT;
+const port = isDeveloping ? 8081 : process.env.PORT;
 const app = express();
 
 if (isDeveloping) {

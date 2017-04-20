@@ -23,9 +23,9 @@ const config = {
 					}
 				}, {
 					loader: 'postcss-loader',
-					options: {
-						plugins: postcssConfig
-					}
+					// options: {
+					// 	plugins: postcssConfig
+					// }
 				}]
 			}
 		]
