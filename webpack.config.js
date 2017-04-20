@@ -1,5 +1,5 @@
 const path 		= require('path');
-const postcssConfig = require('./postcss.config.js');
+// const postcssConfig = require('./postcss.config.js');
 
 const config = {
   entry: './app.js',
