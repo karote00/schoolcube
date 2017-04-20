@@ -1,0 +1,85 @@
+kind: Pod
+apiVersion: v1
+  metadata:
+    name: schoolcube-4231066543-cdbw7
+    generateName: schoolcube-4231066543-
+    namespace: default
+    selfLink: /api/v1/namespaces/default/pods/schoolcube-4231066543-cdbw7
+    uid: e7543960-2575-11e7-a9a1-42010a8c0069
+    resourceVersion: 42259
+    creationTimestamp : 2017-04-20T03:03:18Z
+    labels:
+      app: schoolcube
+      pod-template-hash: 4231066543
+      version: 1.0
+    annotations:
+      kubernetes.io/created-by: {\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicaSet\",\"namespace\":\"default\",\"name\":\"schoolcube-4231066543\",\"uid\":\"e7523087-2575-11e7-a9a1-42010a8c0069\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"42249\"}}\n
+      kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container schoolcube
+    ownerReferences:
+      0:
+        apiVersion: extensions/v1beta1
+        kind: ReplicaSet
+        name: schoolcube-4231066543
+        uid: e7523087-2575-11e7-a9a1-42010a8c0069
+        controller: true
+  spec:
+    volumes:
+      0:
+        name: default-token-qtz3d
+        secret:
+          secretName: default-token-qtz3d
+          defaultMode: 420
+    containers:
+      0:
+        name: schoolcube
+        image: gcr.io/google-samples/node-hello:1.0
+        resources:
+          requests:
+            cpu: 100m
+        volumeMounts:
+          0:
+            name: default-token-qtz3d
+            readOnly: true
+            mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        terminationMessagePath: /dev/termination-log
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          privileged: false
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: default
+      serviceAccount: default
+      nodeName: gke-schoolcube-container-default-pool-bc22a2f1-tzl6
+  status:
+    phase: Running
+    conditions:
+      0:
+        type: Initialized
+        status: True
+        lastProbeTime: null
+        lastTransitionTime: 2017-04-20T03:03:18Z
+      1:
+        type: Ready
+        status: True
+        lastProbeTime: null
+        lastTransitionTime: 2017-04-20T03:03:19Z
+      2:
+        type: PodScheduled
+        status: True
+        lastProbeTime: null
+        lastTransitionTime: 2017-04-20T03:03:18Z
+      hostIP: 10.140.0.2
+      podIP: 10.92.0.11
+      startTime: 2017-04-20T03:03:18Z
+      containerStatuses:
+        0:
+          name: schoolcube
+          state:
+            running:
+              startedAt: 2017-04-20T03:03:18Z
+          ready: true
+          restartCount: 0
+          image: gcr.io/google-samples/node-hello:1.0
+          imageID: docker://sha256:4c7ea8709739b768a0b62b1d5a3fee0667137fc8157bd975e79bbe9bb8bea361
+          containerID: docker://587ec2fcca348c214397242c281c0c1c35ee0214749f5449fa1ee308e430190c
