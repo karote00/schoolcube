@@ -26,7 +26,7 @@ if (isDeveloping) {
   });
 
 	app.use(serve('/app'));
-  app.use(serve('/build'));
+  // app.use(serve('/build'));
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
@@ -34,7 +34,7 @@ if (isDeveloping) {
 		res.sendFile(path.join(__dirname, '/index.html'));
   });
 } else {
-  app.use(serve('/build'));
+  // app.use(serve('/build'));
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
