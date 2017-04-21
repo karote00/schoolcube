@@ -8,6 +8,7 @@ const config = require('./webpack.config.js');
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 8081 : process.env.PORT;
 const app = express();
+const serve = (path, cache) => express.static(__dirname + path);
 
 if (isDeveloping) {
   const compiler = webpack(config);
@@ -24,8 +25,8 @@ if (isDeveloping) {
     // }
   });
 
-  const serve = (path, cache) => express.static(__dirname + path);
 	app.use(serve('/app'));
+  app.use(serve('/build'));
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
@@ -33,7 +34,7 @@ if (isDeveloping) {
 		res.sendFile(path.join(__dirname, '/index.html'));
   });
 } else {
-  app.use(express.static(__dirname + '/dist'));
+  app.use(serve('/build'));
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
