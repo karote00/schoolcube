@@ -13,7 +13,6 @@ const config = {
 			},
 			{
 				test: /\.scss$/,
-				// loader: 'style!css!autoprefixer!sass'
 				use: [{
 					loader: 'style-loader'
 				}, {
