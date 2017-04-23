@@ -1,4 +1,4 @@
-import './app/assets/scss/main.scss';
+import './assets/scss/main.scss';
 // import cubeD3 from './app/assets/js/components/cube';
 
 import THREELib from 'three-js';
