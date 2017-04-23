@@ -1,8 +1,5 @@
 const path = require('path');
 const express = require('express');
-const webpack = require('webpack');
-const webpackMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
@@ -11,6 +8,9 @@ const app = express();
 const serve = (path, cache) => express.static(__dirname + path);
 
 if (isDeveloping) {
+  const webpack = require('webpack');
+  const webpackMiddleware = require('webpack-dev-middleware');
+  const webpackHotMiddleware = require('webpack-hot-middleware');
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
