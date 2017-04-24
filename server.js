@@ -46,7 +46,7 @@ if (isDeveloping) {
     console.info('==> 🌎 Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
   });
 } else {
-  // if (module === require.main) {
+  if (module === require.main) {
     // app.use(serve('/build'));
     app.get('*', function response(req, res) {
       res.sendFile(path.join(__dirname, 'dist/index.html'));
@@ -59,7 +59,7 @@ if (isDeveloping) {
 
       console.info('==> 🌎 Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
     });
-  // }
+  }
 }
 
 module.exports = app;
