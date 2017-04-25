@@ -1,4 +1,3 @@
-import './assets/scss/main.scss';
 // import cubeD3 from './app/assets/js/components/cube';
 
 import THREELib from 'three-js';
@@ -106,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	const onColorChange = (e) => {
 		var rgb = e.target.value;
 		var hex = rgb.replace(/#/, '0x');
-		console.log(INTERSECTED)
+
 		INTERSECTED.material.color.setHex(hex);
 		render();
 	}
@@ -207,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var cPos = camera.position;
 
     if (isNaN(cPos.x) || isNaN(cPos.y) || isNaN(cPos.y)) return;
-console.log(zoomFactor)
+
     // Your zomm limitation
     // For X axe you can add anothers limits for Y / Z axes
     if (zoomFactor < ZOOM_MIN) {
@@ -237,7 +236,6 @@ console.log(zoomFactor)
 	}
 
 	const setCamera = () => {
-		console.log(zoomFactor)
 		camera.position.x = radius * Math.sin( theta * Math.PI / 360 )
                             * Math.cos( phi * Math.PI / 360 ) * zoomFactor;
     camera.position.y = radius * Math.sin( phi * Math.PI / 360 ) * zoomFactor;
