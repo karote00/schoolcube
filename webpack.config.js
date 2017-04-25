@@ -14,23 +14,23 @@ const config = {
 			},
 			{
 				test: /\.scss$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: ['css-loader', 'postcss-loader']
-				})
-				// use: [{
-				// 	loader: 'style-loader'
-				// }, {
-				// 	loader: 'css-loader?importLoaders=1',
-				// 	options: {
-				// 		sourceMap: true
-				// 	}
-				// }, {
-				// 	loader: 'postcss-loader',
-				// 	// options: {
-				// 	// 	plugins: postcssConfig
-				// 	// }
-				// }]
+				// use: ExtractTextPlugin.extract({
+				// 	fallback: 'style-loader',
+				// 	use: ['css-loader', 'sass-loader']
+				// })
+				use: [{
+					loader: 'style-loader'
+				}, {
+					loader: 'css-loader?importLoaders=1',
+					options: {
+						sourceMap: true
+					}
+				}, {
+					loader: 'postcss-loader',
+					// options: {
+					// 	plugins: postcssConfig
+					// }
+				}]
 			},
 			{
 				test: /\.css$/,
@@ -42,15 +42,17 @@ const config = {
 		]
 	},
   output: {
+    // filename: '[name].[chunkhash].js',
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build')
+    publicPath: '/dist/',
+    path: path.resolve(__dirname, 'dist')
   },
-  plugins: [
-    new ExtractTextPlugin({
-    	filename: '[name].css',
-    	allChunks: true
-    })
-  ]
+  // plugins: [
+  //   new ExtractTextPlugin({
+  //   	filename: 'styles.[hash].css',
+  //   	allChunks: true
+  //   })
+  // ]
 };
 
 module.exports = config;

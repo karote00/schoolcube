@@ -14,18 +14,16 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const compiler = webpack(config);
 const middleware = webpackMiddleware(compiler, {
   publicPath: config.output.publicPath,
-  // contentBase: 'src',
+  // contentBase: 'bundle',
   // stats: {
   //   colors: true,
   //   hash: false,
   //   timings: true,
-  //   chunks: false,
+  //   chunks: true,
   //   chunkModules: false,
   //   modules: false
   // }
 });
-
-app.use(serve('/assets'));
 
 app.use(middleware);
 app.use(webpackHotMiddleware(compiler));
