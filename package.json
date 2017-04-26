@@ -12,7 +12,7 @@
     "start": "node server.js",
     "dev": "node devServer.js",
     "build:client": "rm -rf dist && cross-env NODE_ENV=production webpack --config webpack.config.js --progress --hide-modules",
-    "gh-pages": "git add dist && git commit -m 'Update SchoolCube Github Page'"
+    "deploy:gh-pages": "git add dist && git commit -m 'Update SchoolCube Github Page' && git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
     "type": "git",
