@@ -33,7 +33,7 @@ const config = {
 	},
   output: {
     filename: '[name].[chunkhash].js',
-    publicPath: '/dist/',
+    publicPath: './',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
