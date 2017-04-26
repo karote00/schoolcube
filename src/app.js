@@ -135,11 +135,11 @@ document.addEventListener('DOMContentLoaded', function() {
 				let c = idx - startItem;
 				let i, j, k = 0;
 
-				i = c % 3;
-				j = (c - c % 3) / 3;
+				i = c % n;
+				j = (c - c % n) / n;
 				if (j > 2) {
-					k = (j - j % 3) / 3;
-					j = j % 3;
+					k = (j - j % n) / n;
+					j = j % n;
 				}
 
 				child.position.x = (i - (n / 2)) * BOX_GAP;
