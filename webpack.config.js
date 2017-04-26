@@ -3,7 +3,6 @@ const path					 		= require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HTMLPlugin 				= require('html-webpack-plugin');
 const SWPrecachePlugin 	= require('sw-precache-webpack-plugin');
-// const postcssConfig = require('./postcss.config.js');
 const extractCSS				=	new ExtractTextPlugin('stylesheets/[name].css');
 
 const config = {
