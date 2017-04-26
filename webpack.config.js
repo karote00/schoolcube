@@ -1,9 +1,13 @@
+const webpack 					= require('webpack');
 const path					 		= require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HTMLPlugin 				= require('html-webpack-plugin');
+const SWPrecachePlugin 	= require('sw-precache-webpack-plugin');
 // const postcssConfig = require('./postcss.config.js');
+const extractCSS				=	new ExtractTextPlugin('stylesheets/[name].css');
 
 const config = {
-  entry: './app.js',
+  entry: './src/app.js',
   devtool: 'source-map',
 	module: {
 		rules: [
@@ -14,27 +18,14 @@ const config = {
 			},
 			{
 				test: /\.scss$/,
-				// use: ExtractTextPlugin.extract({
-				// 	fallback: 'style-loader',
-				// 	use: ['css-loader', 'sass-loader']
-				// })
-				use: [{
-					loader: 'style-loader'
-				}, {
-					loader: 'css-loader?importLoaders=1',
-					options: {
-						sourceMap: true
-					}
-				}, {
-					loader: 'postcss-loader',
-					// options: {
-					// 	plugins: postcssConfig
-					// }
-				}]
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader', 'sass-loader']
+				})
 			},
 			{
 				test: /\.css$/,
-				use: ExtractTextPlugin.extract({
+				use: extractCSS.extract({
 					fallback: 'style-loader',
 					use: 'css-loader'
 				})
@@ -42,17 +33,37 @@ const config = {
 		]
 	},
   output: {
-    // filename: '[name].[chunkhash].js',
-    filename: 'bundle.js',
+    filename: '[name].[chunkhash].js',
     publicPath: '/dist/',
     path: path.resolve(__dirname, 'dist')
   },
-  // plugins: [
-  //   new ExtractTextPlugin({
-  //   	filename: 'styles.[hash].css',
-  //   	allChunks: true
-  //   })
-  // ]
+  plugins: [
+    new ExtractTextPlugin({
+    	filename: 'styles.[hash].css',
+    	allChunks: true
+    }),
+    new HTMLPlugin({
+      template: 'src/index.html'
+    })
+  ]
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(
+    // minify JS
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    // auto generate service worker
+    new SWPrecachePlugin({
+      cacheId: 'vue-hn',
+      filename: 'service-worker.js',
+      dontCacheBustUrlsMatching: /./,
+      staticFileGlobsIgnorePatterns: [/index\.html$/, /\.map$/]
+    })
+  )
+}
 
 module.exports = config;

@@ -33,7 +33,7 @@ if (isDeveloping) {
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
   app.get('*', function response(req, res) {
-		res.sendFile(path.join(__dirname, '/index.html'));
+		res.sendFile(path.join(__dirname, '/dist/index.html'));
   });
 
   const server = app.listen(port, 'localhost', function onStart(err) {
