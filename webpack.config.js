@@ -33,7 +33,7 @@ const config = {
 	},
   output: {
     filename: '[name].[chunkhash].js',
-    publicPath: './',
+    publicPath: './dist',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
@@ -48,6 +48,8 @@ const config = {
 };
 
 if (process.env.NODE_ENV === 'production') {
+	config.output.publicPath = './';
+
   config.plugins.push(
     // minify JS
     new webpack.optimize.UglifyJsPlugin({
